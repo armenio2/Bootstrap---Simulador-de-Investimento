@@ -1,0 +1,107 @@
+<!doctype html>
+
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" type="text/css" href="css.css" />
+        <script type="text/javascript" src="getjs.js"></script>
+        <script type="text/javascript" src="format.js"></script>
+        <script type="text/javascript" src="mask.js"></script>
+    </head>
+    <body>
+        
+        <div class="container-fluid"> <!-- Cabeça -->
+            <div class="cabeca">
+                <h1>Simular Renda Fixa</h1>
+            </div>     
+        </div>
+        <div class="container-fluid" > 
+            <div id="corpo geral" class="corpoGeral">  <!--Position Absolute-->
+                <form id="myForm">    <!--começo do formulario-->
+                    <div id="formularioInvestimento" class="investimento"> <!--aplicação-->
+
+                        <div class="form-group">
+                            <label>Quanto você quer aplicar?</label>
+                            <input type="text" id="quantidade" maxlength="11" placeholder="R$" oninput="maskMoney(this)"></input>
+                        </div>
+                        <div class="form-group">
+                            <label>Data do retorno do investimento?</label>            
+                            <input type="text" id="data" maxlength="10" placeholder="dd/mm/yyyy" oninput="maskData(this)">
+                        </div>
+                        <div class="form-group">
+                            <label>CDI do investimento?</label>
+                            <input type="text" id="cdi" maxlength="4" placeholder="100%" oninput="maskCdi(this)" >
+                            
+                        </div>
+                        <input id= "submit" type="submit" value="Simular" disabled>
+                        <input type="reset" value="Limpar">  
+                    </div>
+                    
+                    
+                    
+                    
+
+                    <div id="resultado" class="resultadoCss">   <!--resultado da aplicação-->
+                        <div class="titleResult">
+                                <span style=>Resultado da simulação</span>
+                                <span id="resultSimulacao"></span>
+                                <span id="rendimantoTotal">Rendimento total de</span>
+
+                        </div>
+                        
+
+                        <div class="container">
+                                <div class="row">
+                                  <div class="col"><span>Valor aplicado inicialmente</span></div>
+                                  <div class="col"><span id="valorInicial"></span></div>
+                                  <div class="w-100"></div>
+                                  <div class="col"><span>Valor bruto do investimento</span></div>
+                                  <div class="col"><span id="valorBruto"></span></div>
+                                </div>
+                        </div>
+                        <div class="container">
+                                <div class="row">
+                                  <div class="col"><span>Valor do rendimento</span></div>
+                                  <div class="col"><span id="valorRendimento"></span></div>
+                                  <div class="w-100"></div>
+                                  <div class="col"><span>Valor líquido do investimento</span></div>
+                                  <div class="col"><span id="valorLiquido"></span></div>
+                                </div>
+                        </div>
+                        <div class="container">
+                                <div class="row">
+                                  <div class="col"><span>Data de resgate</span></div>
+                                  <div class="col"><span id="dataResgate"></span></div>
+                                  <div class="w-100"></div>
+                                  <div class="col"><span>Dias corridos</span></div>
+                                  <div class="col"><span id="diasCorridos"></span></div>
+                                </div>
+                        </div>
+                        <div class="container">
+                                <div class="row">
+                                  <div class="col"><span>Rendimento mensal</span></div>
+                                  <div class="col"><span id="rendimentoMensal"></span></div>
+                                  <div class="w-100"></div>
+                                  <div class="col"><span>Percentual do CDI do investimento</span></div>
+                                  <div class="col"><span id="precentualCdi"></span></div>
+                                </div>
+                        </div>
+                        <div class="container">
+                                <div class="row">
+                                  <div class="col"><span>Rentabilidade anual</span></div>
+                                  <div class="col"><span id="rentabilidadeAnual"></span></div>
+                                  <div class="w-100"></div>
+                                  <div class="col"><span>Rentabilidade no período</span></div>
+                                  <div class="col"><span id="rentabilidadePeriodo"></span></div>
+                                </div>
+                        </div>
+                    </div>  <!--fim resultado-->
+                </form>    <!--fim do formulario-->
+            </div>
+        </div>
+
+    </body>
+
+
+</html>

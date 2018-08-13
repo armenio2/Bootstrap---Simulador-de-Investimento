@@ -1,0 +1,45 @@
+.cabeca{
+    text-align: center;
+    padding: 3%;
+    border-bottom: solid 3px;
+    background: white;
+}
+body{
+    background: rgb(230, 224, 224);
+    margin: 0;
+    padding: 0;
+}
+#myForm{
+    margin:  5% 30% 0 ;
+    align-content: center;
+    font-size: 200%;
+    text-align: center;
+    background: rgb(196, 146, 216);
+    padding: 1%;
+    border: solid 2px;
+    
+}
+.titleResult{
+    text-align: center;
+    padding: 7%;
+}
+.resultadoCss div{
+    border-bottom: 1px solid;
+}
+/*--------------------------hidden e visible*/
+#corpogeral{
+    position: absolute;
+}
+#formularioInvestimento{
+    position: relative;
+    z-index: 0;
+    display: inherit; 
+}
+#resultado{
+    z-index: 1;
+    visibility: hidden;
+    display: none;
+    position: relative;
+}
+
+
