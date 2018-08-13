@@ -1,0 +1,21 @@
+{
+  "name": "Bootstrap-page",
+  "homepage": "https://github.com/armenio2/Bootstrap-page",
+  "authors": [
+    "Armenio Mauricio <dehme.armenio@gmail.com>"
+  ],
+  "description": "Simulador de Investimento com Bootstrap",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.1.3"
+  }
+}
