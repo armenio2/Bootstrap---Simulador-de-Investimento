@@ -32,7 +32,6 @@ function maskData(input){
             
     var regex = /[^0-9]/g;
     input.value =  input.value.replace(regex, "");
-
     if (input.value>99 && input.value< 1000){
         x = input.value;
         input.value = x.substring(0,2)+"/"+ x.substring(2,3);
@@ -50,9 +49,32 @@ function maskData(input){
         input.value =x.substring(0,2)+"/"+ x.substring(2,4)+"/"+x.substring(4,7);
     }else if (input.value>9999999 && input.value< 100000000){
         x = input.value;
-        if(x.substring(0,2)<31 && x.substring(2,4)<13 && x.substring(4,8)<2100 && x.substring(4,8)>2017 ){
+        if(x.substring(0,2)<31 && x.substring(2,4)<13 && x.substring(4,8)<2043 && x.substring(4,8)>2017 ){
             input.value =x.substring(0,2)+"/"+ x.substring(2,4)+"/"+x.substring(4,8);
-        enableSubmit()
+            if (x.substring(2,4)== 04 || x.substring(2,4)== 06 || x.substring(2,4)== 09 || x.substring(2,4)== 11){
+                    if(x.substring(0,2)<31){
+                        enableSubmit()
+                    }else{
+                        alert("Favor Informar uma Data Valida")
+                        input.value = "";
+                    }
+            }
+            if(x.substring(2,4)== 02){
+                if(x.substring(4,8)==2020 || x.substring(4,8)==2024 || x.substring(4,8)==2028 || x.substring(4,8)==2032 || x.substring(4,8)==2036 || x.substring(4,8)==2040 ){
+                    if(x.substring(0,2)<30){
+                        enableSubmit()
+                    }else{
+                        alert("Favor Informar uma Data Valida")
+                        input.value = "";
+                    }
+                }else if(x.substring(0,2)<29){
+                        enableSubmit()
+                }else{
+                    alert("Favor Informar uma Data Valida")
+                    input.value = "";
+                }
+            }
+        
         }else{
             alert("Favor Informar uma Data Valida")
             input.value = "";
@@ -61,6 +83,7 @@ function maskData(input){
     }
     
 }
+
 //------------------------Mascara Fim Data -------------------------
 
 //------------------------Mascara Cdi -------------------------
