@@ -94,6 +94,16 @@ function maskCdi(input){
     
     input.value =  input.value+"%";
     enableSubmit()
+
+    var input = document.getElementById('cdi'); //backspace press
+
+    input.onkeydown = function() {
+    var key = event.keyCode || event.charCode;
+
+    if( key == 8 || key == 46 )
+        input.value = "";
+
+    };
 }
 
 
