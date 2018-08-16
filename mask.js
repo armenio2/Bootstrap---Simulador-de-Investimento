@@ -27,61 +27,71 @@ function maskMoney(input){
 //------------------------Mascara Fim Quantidade -------------------------
 
 //------------------------Mascara Data -------------------------
-
 function maskData(input){
-            
-    var regex = /[^0-9]/g;
-    input.value =  input.value.replace(regex, "");
-    if (input.value>99 && input.value< 1000){
-        x = input.value;
-        input.value = x.substring(0,2)+"/"+ x.substring(2,3);
-    }else if(input.value>999 && input.value< 10000){
-        x = input.value;
-        input.value =  x.substring(0,2)+"/"+ x.substring(2,4);
-    }else if(input.value>9999 && input.value< 100000){
-        x = input.value;
-        input.value = x.substring(0,2)+"/"+ x.substring(2,4)+"/"+x.substring(4,5);
-    }else if (input.value>99999 && input.value< 1000000){
-        x = input.value;
-        input.value =x.substring(0,2)+"/"+ x.substring(2,4)+"/"+x.substring(4,6);
-    }else if (input.value>999999 && input.value< 10000000){
-        x = input.value;
-        input.value =x.substring(0,2)+"/"+ x.substring(2,4)+"/"+x.substring(4,7);
-    }else if (input.value>9999999 && input.value< 100000000){
-        x = input.value;
-        if(x.substring(0,2)<31 && x.substring(2,4)<13 && x.substring(4,8)<2043 && x.substring(4,8)>2017 ){
-            input.value =x.substring(0,2)+"/"+ x.substring(2,4)+"/"+x.substring(4,8);
-            if (x.substring(2,4)== 04 || x.substring(2,4)== 06 || x.substring(2,4)== 09 || x.substring(2,4)== 11){
-                    if(x.substring(0,2)<31){
-                        enableSubmit()
+    if(input.value.length ==2){
+        input.value = input.value + "/"
+        return true
+    }if(input.value.length ==5){
+        input.value = input.value + "/"
+        return true
+    }if(input.value.length ==10){
+        var value = input.value.split("/")
+        var day = value[0]
+        var month = value[1]
+        var year = value[2]
+            //validando data
+        if(month <13){
+            if(day<32){
+                if(year>2017 && year<2051){
+                    //validando fevereiro e outros meses
+                    if(month == 4 || month == 6 || month == 9 || month == 11){
+
+                        if(day <31){
+                            enableSubmit()
+
+                        }else{
+                            input.value = "";
+                            alert("Favor Informar uma Data Valida")
+                        }
+                    }else if(month == 2){
+                        if(day <29){
+                            enableSubmit()
+                        }else if(day == 29){ //ano bixesto
+                            var rest = year%4
+                            if(rest==0){
+                                enableSubmit()
+                            }else{
+                                input.value = "";
+                                alert("Favor Informar uma Data Valida")
+                            }
+                            
+                        }
                     }else{
-                        alert("Favor Informar uma Data Valida")
-                        input.value = "";
-                    }
-            }
-            if(x.substring(2,4)== 02){
-                if(x.substring(4,8)==2020 || x.substring(4,8)==2024 || x.substring(4,8)==2028 || x.substring(4,8)==2032 || x.substring(4,8)==2036 || x.substring(4,8)==2040 ){
-                    if(x.substring(0,2)<30){
                         enableSubmit()
-                    }else{
-                        alert("Favor Informar uma Data Valida")
-                        input.value = "";
                     }
-                }else if(x.substring(0,2)<29){
-                        enableSubmit()
                 }else{
-                    alert("Favor Informar uma Data Valida")
                     input.value = "";
+                    alert("Favor Informar uma Data Valida")
                 }
+            }else{
+                input.value = "";
+                alert("Favor Informar uma Data Valida")
             }
-        
+
         }else{
-            alert("Favor Informar uma Data Valida")
             input.value = "";
+            alert("Favor Informar uma Data Valida")
         }
-        
     }
-    
+    var input = document.getElementById('data'); //backspace press
+
+    input.onkeydown = function() {
+    var key = event.keyCode || event.charCode;
+
+    if( key == 8 || key == 46 )
+        input.value = "";
+
+    };
 }
 
 //------------------------Mascara Fim Data -------------------------
