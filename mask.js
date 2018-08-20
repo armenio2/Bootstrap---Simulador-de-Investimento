@@ -99,7 +99,7 @@ function maskData(input){
 //------------------------Mascara Cdi -------------------------
 function maskCdi(input){
             
-    var regex = /[^1-9]/g;
+    var regex = /[^0-9]/g;
     input.value =  input.value.replace(regex, "");
     
     input.value =  input.value+"%";
