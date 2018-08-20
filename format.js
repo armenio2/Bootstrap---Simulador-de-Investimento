@@ -19,3 +19,9 @@ function formatNumber(number){
         return  number;
     }
 }
+function formatDate(number){
+    number = number.substring(0,10)
+    return number.split('-').reverse().join('/');
+    
+
+}

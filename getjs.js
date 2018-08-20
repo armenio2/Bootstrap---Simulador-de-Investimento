@@ -39,7 +39,7 @@ function mostraValores(element){ //dando hidden input e mostrando result
     document.getElementById("valorBruto").innerHTML="R$"+ formatNumber(element.grossAmount) ;
     document.getElementById("valorRendimento").innerHTML="R$"+ formatNumber(element.grossAmountProfit) ;
     document.getElementById("valorLiquido").innerHTML="R$"+ formatNumber(element.netAmountProfit) ;
-    document.getElementById("dataResgate").innerHTML=element.investmentParameter.maturityDate;
+    document.getElementById("dataResgate").innerHTML=formatDate(element.investmentParameter.maturityDate);
     document.getElementById("diasCorridos").innerHTML= formatNumber(element.investmentParameter.maturityTotalDays);
     document.getElementById("rendimentoMensal").innerHTML=formatNumber(element.monthlyGrossRateProfit);
     document.getElementById("precentualCdi").innerHTML=element.investmentParameter.rate;
