@@ -90,12 +90,11 @@ function hiddenDisplay(element){ //mudando o display da tela para mostrar result
 
 function submitForm(){
 
-    var regex = /[^1-9]/g; //somente numeros para usar no replace
+    var regex = /[^0-9]/g; //somente numeros para usar no replace
     var investedAmount = document.getElementById("quantidade").value;
     investedAmount = investedAmount.replace(regex,""); //tirando a mask
-    var index = "CDI";
-    index = index.replace(regex,""); //tirando a mask
     var rate = document.getElementById("cdi").value;
+    rate = rate.replace(regex,""); //tirando a mask
     var isTaxFree = false;
     var maturityDate = document.getElementById("data").value;
     maturityDate = dateToEN(maturityDate);
